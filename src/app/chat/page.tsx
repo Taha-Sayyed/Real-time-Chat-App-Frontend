@@ -66,7 +66,7 @@ const ChatApp = () => {
     const token = Cookies.get("token");
     try {
       const { data } = await axios.get(
-        `${chat_service}/api/v1/messages/${selectedUser}`,
+        `${chat_service}/api/v1/chat/messages/${selectedUser}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -146,7 +146,7 @@ const ChatApp = () => {
     try {
       const token = Cookies.get("token");
       const { data } = await axios.post(
-        `${chat_service}/api/v1/chat/new`,
+        `${chat_service}/api/v1/chat/chat/new`,
         {
           userId: loggedInUser?._id,
           otherUserId: u._id,
@@ -200,7 +200,7 @@ const ChatApp = () => {
       }
 
       const { data } = await axios.post(
-        `${chat_service}/api/v1/message`,
+        `${chat_service}/api/v1/chat/message`,
         formData,
         {
           headers: {
